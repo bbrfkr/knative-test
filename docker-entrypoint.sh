@@ -14,6 +14,9 @@ else
   rm -f /tmp/dokuwiki.tgz
 fi
 
+mkdir -p /etc/httpd/logs
+chmod apache:apache /etc/httpd/logs
+
 echo "##########"
 echo "start apache"
 echo "##########"
