@@ -14,7 +14,7 @@ else
   rm -f /tmp/dokuwiki.tgz
 fi
 
-if [ -e /etc/httpd/logs/ ] ; then
+if [ ! -e /etc/httpd/logs/ ] ; then
   mkdir -p /etc/httpd/logs/
 fi
 chown apache:apache /etc/httpd/logs
