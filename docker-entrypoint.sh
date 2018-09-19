@@ -14,8 +14,10 @@ else
   rm -f /tmp/dokuwiki.tgz
 fi
 
-mkdir -p /etc/httpd/logs
-chmod apache:apache /etc/httpd/logs
+if [ -e /etc/httpd/logs/ ] ; then
+  mkdir -p /etc/httpd/logs/
+fi
+chown apache:apache /etc/httpd/logs
 
 echo "##########"
 echo "start apache"
