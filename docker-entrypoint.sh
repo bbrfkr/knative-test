@@ -14,7 +14,7 @@ else
   rm -f /tmp/dokuwiki.tgz
 fi
 
-ls -lR /etc/httpd
+chown -R apache:apache /var/log/httpd
 
 echo "##########"
 echo "start apache"
