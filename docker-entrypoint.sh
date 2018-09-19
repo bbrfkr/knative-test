@@ -14,6 +14,7 @@ else
   rm -f /tmp/dokuwiki.tgz
 fi
 
+mkdir -p /var/log/httpd
 chown -R apache:apache /var/log/httpd
 
 echo "##########"
