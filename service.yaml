@@ -1,0 +1,27 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: knative-build-test
+  namespace: default
+spec:
+  runLatest:
+    configuration:
+      build:
+        serviceAccountName: build-bot
+        source:
+          git:
+            url: https://github.com/bbrfkr/knative-test.git
+            revision: master
+        template:
+          name: kaniko
+          arguments:
+          - name: IMAGE
+            value: docker.io/bbrfkr0129/knative-test:latest
+      revisionTemplate:
+        spec:
+          container:
+            image: docker.io/bbrfkr0129/knative-test:latest 
+            imagePullPolicy: Always
+            env:
+            - name: GREETING
+              value: "Hello Knative!"
